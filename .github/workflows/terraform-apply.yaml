@@ -1,0 +1,43 @@
+name: Terraform apply
+
+
+
+on: 
+workflow_dispatch:
+   inputs:
+      logLevel:
+         descreption: 'Log level'
+         required: true
+         default: 'warning'
+
+jobs:
+  terraform-apply:
+     runs-on: ubuntu-latest
+ 
+     steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
+
+     - name: setup terraform
+       uses: hashicorp/setup-terraform@v1
+       with:
+         terraform_version: 1.0.0
+
+     - name: Configure AWS credentials
+       uses: aws-actions/configure-aws-credentials@v1
+       with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+
+     - name: Intialize Terraform
+       run: terraform init  ./terraform
+
+     - name: Terraform Plan
+       run: terraform plan
+        
+     -name: Apply Terraform
+      run: terraform apply -autoapprove ./terraform
+
+
