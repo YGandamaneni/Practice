@@ -27,12 +27,12 @@ jobs:
 
 
      - name: Intialize Terraform
-       run: terraform init  ./terraform
+       run: terraform init
 
      - name: Terraform Plan
        run: terraform plan
         
      - name: Apply Terraform
-       run: terraform apply -autoapprove ./terraform
+       run: terraform apply -autoapprove 
 
 
