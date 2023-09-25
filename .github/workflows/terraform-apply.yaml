@@ -3,12 +3,7 @@ name: Terraform apply
 
 
 on: 
-workflow_dispatch:
-   inputs:
-      logLevel:
-         descreption: 'Log level'
-         required: true
-         default: 'warning'
+  workflow_dispatch:
 
 jobs:
   terraform-apply:
