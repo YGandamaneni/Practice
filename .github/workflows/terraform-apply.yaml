@@ -27,12 +27,15 @@ jobs:
 
 
      - name: Intialize Terraform
-       run: terraform init ./terraform
+       run: terraform init 
+       working-directory: ./terraform
 
      - name: Terraform Plan
-       run: terraform plan ./terraform
+       run: terraform plan 
+       working-directory: ./terraform
         
      - name: Apply Terraform
-       run: terraform apply -autoapprove ./terraform 
+       run: terraform apply -autoapprove
+       working-directory: ./terraform
 
 
