@@ -17,13 +17,12 @@ jobs:
          # KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_FILE }}
       # run: echo "KUBECONFIG_FILE" > kubeconfig &&
            # pwd
+           
+     - name: Set up kubectl
+       uses: actions-hub/kubectl@master
+       env:
+        KUBE_CONFIG: ${{ secrets.KUBECONFIG_FILE }}
+       with:
+        args: get nodes
 
-     - name: Set up kubectl     
-       run: | 
-         mkdir -p ~/.kube        
-         echo "${{ secrets.KUBECONFIG_FILE }}" > ~/.kube/config
-         cat ~/.kube/config
-         pwd
-
-     - name: get nodes
-       run: kubectl get nodes
+   
