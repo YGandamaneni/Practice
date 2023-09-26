@@ -1,8 +1,21 @@
-provider "aws" {
-  region     = "us-east-1"
+eks_managed_node_groups = {
+one = {
+    name = "node-group-1"
+
+    instance_types = ["t3.small"]
+
+    min_size     = 1
+    max_size     = 3
+    desired_size = 2
 }
 
-resource "aws_instance" "example" {
-  ami           = "ami-2757f631"
-  instance_type = "t2.micro"
+two = {
+    name = "node-group-2"
+
+    instance_types = ["t3.small"]
+
+    min_size     = 1
+    max_size     = 2
+    desired_size = 1
+}
 }
