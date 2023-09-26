@@ -12,12 +12,17 @@ jobs:
      - name: Checkout code
        uses: actions/checkout@v2
 
-     - name: Set up kubectl     
-       run: | 
-         mkdir -p ~/.kube        
-         echo "${{ secrets.KUBECONFIG_FILE }}" > ~/.kube/config  
-         kubectl version 
-         pwd
+     - name: set up kubeconfig
+       env:
+          KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_FILE }}
+       run: echo "KUBECONFIG_FILE" > kubeconfig
+
+     #- name: Set up kubectl     
+      # run: | 
+       #  mkdir -p ~/.kube        
+        # echo "${{ secrets.KUBECONFIG_FILE }}" > ~/.kube/config  
+        # kubectl version 
+         #pwd
 
      - name: get nodes
-       run: kubectl get nodes
+       run: kubectl --kubeconfig=kubeconfig get nodes
