@@ -13,4 +13,4 @@ jobs:
        uses: actions/checkout@v2
 
      - name: create disco env 
-       run: sh deployment/k8/create.sh
+       run: sh deployment/k8s/create.sh
