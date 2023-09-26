@@ -16,7 +16,7 @@ jobs:
        run: | 
          mkdir -p ~/.kube        
          echo "${{ secrets.KUBECONFIG_FILE }}" > ~/.kube/config  
-         kubectl version --short
+         kubectl version 
          pwd
 
      - name: get nodes
