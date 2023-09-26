@@ -24,9 +24,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-            #- name: Intialize Terraform
-            #run: terraform init 
-            #working-directory: ./terraform
+     - name: Intialize Terraform
+       run: terraform init 
+       working-directory: ./terraform
 
      - name: Destroy resources
        run: terraform destroy 
