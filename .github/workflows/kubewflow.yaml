@@ -22,3 +22,7 @@ jobs:
      - name: update kubeconfig
        run: |
           aws eks --region us-east-2 update-kubeconfig --name education-eks-xjCnMVsM
+
+     - name: view kubeconfig
+       run: |
+          cat /home/runner/.kube/config
