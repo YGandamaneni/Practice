@@ -1,0 +1,21 @@
+name: delete Deployment workflow
+
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  run-scripts:
+     runs-on: ubuntu-latest
+ 
+     steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
+
+     - name: set up kubeconfig
+       env:
+          KUBECONFIG_FILE: ${{ secrets.KUBECONFIG_FILE }}
+       run: echo "KUBECONFIG_FILE" > kubeconfig
+
+     - name: get nodes
+       run: kubectl get nodes
