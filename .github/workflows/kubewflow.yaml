@@ -26,3 +26,7 @@ jobs:
      - name: view kubeconfig
        run: |
           cat /home/runner/.kube/config
+
+     - name: get nodes
+       run: |
+           kubectl get nodes
