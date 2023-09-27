@@ -21,6 +21,6 @@ jobs:
 
      - name: Download caller from s3
        run: aws s3 cp s3://test1sept13/called.sh $GITHUB_WORKSPACE/called.sh
-
+            echo $GITHUB_WORKSPACE
      - name: run script
        run: chmod +x deployment/k8s/caller.sh && sh deployment/k8s/caller.sh $GITHUB_WORKSPACE/called.sh
