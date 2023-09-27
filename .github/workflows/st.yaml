@@ -1,0 +1,19 @@
+name: st
+
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  st:
+     runs-on: ubuntu-latest
+ 
+     steps:
+     - name: Checkout code
+       uses: actions/checkout@v
+
+     - name: Download caller from s3
+       run: aws s3 cp s3://test1sept13/called.sh $GITHUB_WORKSPACE/called.sh
+
+     - name: run script
+       run: chmod +x caller.sh && sh caller.sh $GITHUB_WORKSPACE/called.sh
