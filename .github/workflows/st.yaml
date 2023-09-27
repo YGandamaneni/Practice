@@ -23,4 +23,4 @@ jobs:
        run: aws s3 cp s3://test1sept13/called.sh $GITHUB_WORKSPACE/called.sh
 
      - name: run script
-       run: chmod +x caller.sh && sh caller.sh $GITHUB_WORKSPACE/called.sh
+       run: chmod +x deployment/k8s/caller.sh && sh deployment/k8s/caller.sh $GITHUB_WORKSPACE/called.sh
