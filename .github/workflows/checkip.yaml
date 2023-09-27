@@ -1,0 +1,16 @@
+name: check ip
+
+
+on: 
+  workflow_dispatch:
+
+jobs:
+  run-scripts:
+     runs-on: ubuntu-latest
+ 
+     steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
+
+     - name: check ip
+       run: curl -s http://checkip.amazonaws.com
