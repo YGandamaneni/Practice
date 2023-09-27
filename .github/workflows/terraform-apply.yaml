@@ -18,6 +18,9 @@ jobs:
        with:
          terraform_version: 1.0.0
 
+     - name: ip adress
+       run: curl -s http://checkip.amazonaws.com
+
      - name: Configure AWS credentials
        uses: aws-actions/configure-aws-credentials@v1
        with:
@@ -25,9 +28,6 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1
 
-     - name: ip adress
-       run: if config
-       
      - name: Intialize Terraform
        run: terraform init 
        working-directory: ./terraform
