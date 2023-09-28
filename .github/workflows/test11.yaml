@@ -20,6 +20,6 @@ jobs:
           aws-region: us-east-2
      
      - name: Download ScaleOut-gcc8.4.1-redhat-8-2.4.6-97-PLUGINS from s3
-       run: aws s3 cp s3://ghtest-sept23/ScaleOut-gcc8.4.1-redhat-8-2.4.6-97-SDK.tar $GITHUB_WORKSPACE/ScaleOut-gcc8.4.1-redhat-8-2.4.6-97-SDK.tar
+       run: aws s3 cp s3://ghtest-sept23/ScaleOut-gcc8.4.1-redhat-8-2.4.6-97-SDK.tar.gz $GITHUB_WORKSPACE/ScaleOut-gcc8.4.1-redhat-8-2.4.6-97-SDK.tar.gz
 
   
