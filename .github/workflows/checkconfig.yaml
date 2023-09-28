@@ -26,5 +26,6 @@ jobs:
 
      - name: get nodes
        run: kubectl --kubeconfig=kubeconfig get nodes
-
+     - name: delete disco  
+       run: sh deployment/k8s/delete-disco.sh disco-2-4-6
     
