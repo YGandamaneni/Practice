@@ -25,6 +25,8 @@ jobs:
      - name: see location
        run: |
           pwd
-          ls -ltr
+          ls -ltr 
+          ls -ltr terraform
+          ls -ltr deployments
 
   
