@@ -27,6 +27,6 @@ jobs:
           pwd
           ls -ltr 
           ls -ltr terraform
-          ls -ltr deployments
+          ls -ltr deployment
 
   
