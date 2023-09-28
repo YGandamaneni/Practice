@@ -1,4 +1,5 @@
 #!bin/bash
 echo "hello"
 
-helm -i upgrade disco
+helm --help
+helm version
