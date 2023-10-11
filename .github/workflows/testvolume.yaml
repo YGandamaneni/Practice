@@ -1,0 +1,64 @@
+name: Test_Volume workflow
+
+on: 
+  workflow_dispatch:
+   inputs:
+     Test_name:
+        type: choice
+        description: Type_of_Volume_test
+        required: true
+        options:
+        - Small_Batch
+        - Medium_batch
+
+jobs:
+  run-scripts:
+     runs-on: ubuntu-latest
+  
+     steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
+
+     - name: Configure AWS credentials
+       uses: aws-actions/configure-aws-credentials@v1
+       with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          s3_bucket : ${{ secrets.s3_bucket }}
+          aws-region: us-east-1
+
+     - name: Login to Instance and Run Small Batch
+       if: github.event.inputs.Test_name == 'Small_Batch'
+       env: 
+         PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+         HOST: ${{ secrets.HOST }}
+         USER: ${{ secrets.USER }}
+
+       run: |
+         echo "$PRIVATE_KEY" > private_key.pem
+         chmod 600 private_key.pem
+         ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST '
+               source ./scaleout/WBSDGeocrawlerPlugins-1.3.0-60/EnvironmentSettings.sh &&
+               source ./scaleout/WBSDGeocrawlerPlugins-1.3.0-60/python/SetPythonPath.sh &&
+               export PYTHONPATH=/home/ec2-user/scaleout/HueSpace-12.3.0-320-gcc8.4.1-redhat-8-x86_64/python:/home/ec2     user/scaleout/WBSDGeocrawlerPlugins-1.3.0-60/python/utils:. &&
+               export HUESPACE3_HOME=/home/ec2-user/scaleout/HueSpace-12.3.0-320-gcc8.4.1-redhat-8-x86_64 &&
+
+             ./scaleout/WBSDGeocrawlerPlugins-1.3.0-60/python/wf_creation_scripts/small_volume_test.sh'
+
+     - name: Login to Instance and Run Medium Batch
+       if: github.event.inputs.Test_name == 'Medium_batch'
+       env: 
+         PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+         HOST: ${{ secrets.HOST }}
+         USER: ${{ secrets.USER }}
+
+       run: |
+         echo "$PRIVATE_KEY" > private_key.pem
+         chmod 600 private_key.pem
+          ssh -o StrictHostKeyChecking=no -i private_key.pem $USER@$HOST '
+               source ./scaleout/WBSDGeocrawlerPlugins-1.3.0-60/EnvironmentSettings.sh &&
+               source ./scaleout/WBSDGeocrawlerPlugins-1.3.0-60/python/SetPythonPath.sh &&
+               export PYTHONPATH=/home/ec2-user/scaleout/HueSpace-12.3.0-320-gcc8.4.1-redhat-8-x86_64/python:/home/ec2     user/scaleout/WBSDGeocrawlerPlugins-1.3.0-60/python/utils:. &&
+               export HUESPACE3_HOME=/home/ec2-user/scaleout/HueSpace-12.3.0-320-gcc8.4.1-redhat-8-x86_64 &&
+
+             ./scaleout/WBSDGeocrawlerPlugins-1.3.0-60/python/wf_creation_scripts/small_volume_test.sh'
