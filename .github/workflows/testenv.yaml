@@ -24,3 +24,5 @@ jobs:
      - name: check env
        run:  |
           echo "$name"
+       env:
+        name: ${{ env.name }}
