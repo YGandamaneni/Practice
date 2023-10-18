@@ -1,0 +1,26 @@
+name: Deployment workflow
+
+
+on: 
+  workflow_dispatch:
+   inputs:
+     region:
+        type: choice
+        description: AWS Region
+        required: true
+        options:
+        - us-east-1
+
+
+jobs:
+  run-scripts:
+     runs-on: ubuntu-latest
+     timeout-minutes: 40 # Increase as needed
+  
+     steps:
+     - name: Checkout code
+       uses: actions/checkout@v2
+
+     - name: check env
+       run:  |
+          echo "$name"
