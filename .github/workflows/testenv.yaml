@@ -23,6 +23,6 @@ jobs:
 
      - name: check env
        run:  |
-          echo "$name"
+          echo "$NAME"
        env:
-        name: ${{ env.name }}
+        NAME: ${{ env.NAME }}
