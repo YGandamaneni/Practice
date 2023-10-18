@@ -10,12 +10,15 @@ on:
         required: true
         options:
         - us-east-1
-
+         
 
 jobs:
   run-scripts:
      runs-on: ubuntu-latest
      timeout-minutes: 40 # Increase as needed
+
+     environment:
+       name: Test
   
      steps:
      - name: Checkout code
