@@ -18,7 +18,7 @@ jobs:
      timeout-minutes: 40 # Increase as needed
 
      env:
-       NAME: Test
+       NAME: nodes
   
      steps:
      - name: Checkout code
@@ -27,4 +27,5 @@ jobs:
      - name: check env
        run:  |
           echo "$NAME"
+          kubectl get $NAME
        
