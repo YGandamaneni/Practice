@@ -17,8 +17,8 @@ jobs:
      runs-on: ubuntu-latest
      timeout-minutes: 40 # Increase as needed
 
-     environment:
-       name: Test
+     env:
+       NAME: Test
   
      steps:
      - name: Checkout code
