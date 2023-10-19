@@ -7,6 +7,9 @@ on:
 jobs:
   run-scripts:
      runs-on: ubuntu-latest
+
+     env:
+       test: version
  
      steps:
      - name: Checkout code
@@ -14,4 +17,4 @@ jobs:
 
      - name: create disco env 
        run: |
-         docker version
+         docker $test
