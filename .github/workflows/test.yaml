@@ -16,6 +16,12 @@ jobs:
        run: |
           pip install selenium
           pip install selenium webdriver-manager
+
+     - name: install chrome driver
+       run: |
+          sudo apt-get install chromium-chromedriver
+
+          
      
      #- name: Prepare Selenium
       # https://github.com/marketplace/actions/setup-chromedriver
