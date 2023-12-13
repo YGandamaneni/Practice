@@ -16,13 +16,16 @@ jobs:
        run: |
           pip install selenium
           pip install selenium webdriver-manager
+     
+     - name: Prepare Selenium
+      # https://github.com/marketplace/actions/setup-chromedriver
+       uses: nanasess/setup-chromedriver@master
 
      - name: run test
        run: |
           from selenium import webdriver
-          from webdriver_manager.microsoft import EdgeChromiumDriverManager
+          driver = webdriver.Chrome()
 
-          driver = webdriver.Edge(EdgeChromiumDriverManager().install())
 
           driver.get("https://www.youtube.com")
 
