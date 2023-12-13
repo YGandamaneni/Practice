@@ -17,18 +17,12 @@ jobs:
           pip install selenium
           pip install selenium webdriver-manager
      
-     - name: Prepare Selenium
+     #- name: Prepare Selenium
       # https://github.com/marketplace/actions/setup-chromedriver
-       uses: nanasess/setup-chromedriver@master
+      # uses: nanasess/setup-chromedriver@master
 
      - name: run test
        run: |
-          from selenium import webdriver
-          driver = webdriver.Chrome()
-
-
-          driver.get("https://www.youtube.com")
-
-          driver.quit()
+        python ./terraform/testtt.py
           
          
