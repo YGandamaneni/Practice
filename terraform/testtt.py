@@ -31,7 +31,7 @@ sleep(3)
 
 #workflow_name_box=driver.find_element("id","workflow-name")
 
-try:
+#try:
    # near_box.send_keys(near_url)
    # sleep(1)
     #mid_box.send_keys(mid_url)
@@ -41,6 +41,6 @@ try:
     #sleep(1)
 
    
-finally:
+#finally:
 
 driver.quit()
