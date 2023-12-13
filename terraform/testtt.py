@@ -41,8 +41,6 @@ try:
     #sleep(1)
 
    
-except Exception as e:
-    print("Exception:\n=================")
-    print(e)
+finally:
 
 driver.quit()
