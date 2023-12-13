@@ -7,14 +7,25 @@ on:
 jobs:
   run-scripts:
      runs-on: ubuntu-latest
-
-     env:
-       test: version
  
      steps:
      - name: Checkout code
        uses: actions/checkout@v2
 
-     - name: create disco env 
+     - name: install dep
        run: |
-         docker $test
+          pip install selenium
+          pip install selenium webdriver-manager
+
+     - name: run test
+       run: |
+          from selenium import webdriver
+          from webdriver_manager.microsoft import EdgeChromiumDriverManager
+
+          driver = webdriver.Edge(EdgeChromiumDriverManager().install())
+
+          driver.get("https://www.youtube.com")
+
+          driver.quit()
+          
+         
