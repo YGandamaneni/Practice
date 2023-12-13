@@ -12,26 +12,27 @@ jobs:
      - name: Checkout code
        uses: actions/checkout@v2
 
-     - name: install google
-       run: |
-          wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-          sudo apt install ./google-chrome-stable_current_amd64.deb
-          sudo apt install google-chrome-stable
+     - name: Checkout chrome
+       uses: nanasess/setup-chromedriver@master
+       
+    # - name: install google
+     #  run: |
+      #    wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+        #  sudo apt install ./google-chrome-stable_current_amd64.deb
+        #  sudo apt install google-chrome-stable
 
 
-     - name: install chrome driver
-       run: |
+   #  - name: install chrome driver
+     #  run: |
 
           #sudo apt install python3.8-venv
-          python3 -m venv venv
-          source venv/bin/activate
-          pip install selenium webdriver-manager
-          python ./terraform/testtt.py
+        #  source venv/bin/activate
+        ##   python ./terraform/testtt.py
           
 
-  #   - name: run test
-       #run: |
-       # pip install selenium webdriver-manager
-       # python ./terraform/testtt.py
+     - name: run test
+       run: |
+        pip install selenium webdriver-manager
+        python ./terraform/testtt.py
           
          
