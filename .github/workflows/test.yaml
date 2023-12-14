@@ -32,7 +32,7 @@ jobs:
 
      - name: run test
        run: |
-        
+        pip install selenium
         python ./terraform/testtt.py
           
          
