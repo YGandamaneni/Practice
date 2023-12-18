@@ -32,7 +32,7 @@ for option in options:
 
     
 driver = webdriver.Chrome(options = chrome_options)
-driver.get('http://www.python.org')
+driver.get(url)
 print(driver.title)
 driver.quit()
 
