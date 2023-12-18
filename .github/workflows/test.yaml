@@ -9,6 +9,11 @@ on:
         required: true
         default: "https://www.python.org"
 
+      title:
+        description: tile
+        required: true
+        default: driver.title
+
 jobs:
   run-scripts:
      runs-on: ubuntu-latest
@@ -53,10 +58,11 @@ jobs:
        id: set-url-env
        run: |
         echo "url=${{ github.event.inputs.URL }}" >> $GITHUB_ENV
-        #echo "url=${{ github.event.inputs.URL }}" >> $RUNNER_TEMP/env
+        echo "tt=${{ github.event.inputs.title }}" >> $GITHUB_ENV
      - name: run test
        env:
          url: ${{ env.url }}
+         tt: ${{ env.tt}}
        run: |
         #pip install selenium==3.141.0
         python ./terraform/testtt.py
