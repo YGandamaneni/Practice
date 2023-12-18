@@ -3,6 +3,11 @@ name: Deployment__workflow
 
 on: 
   workflow_dispatch:
+    inputs:
+     URL:
+        description: Near_url
+        required: true
+        default: "https://www.python.org"
 
 jobs:
   run-scripts:
@@ -46,6 +51,8 @@ jobs:
           
 
      - name: run test
+       env:
+         url: ${{ github.event.inputs.URL }}
        run: |
         #pip install selenium==3.141.0
         python ./terraform/testtt.py
