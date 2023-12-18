@@ -4,8 +4,11 @@ from selenium.webdriver.chrome.service import Service
 import chromedriver_autoinstaller
 from pyvirtualdisplay import Display
 import os
+import sys
 display = Display(visible=0, size=(800, 800))  
 display.start()
+
+url=sys.argv[1]
 
 chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
                                       # and if it doesn't exist, download it automatically,
@@ -33,10 +36,9 @@ for option in options:
 
     
 driver = webdriver.Chrome(options = chrome_options)
-url = os.environ.get("url")
-tt = os.environ.get("tt")
+#url = os.environ.get("url")
 driver.get(url)
-print(tt)
+print(driver.title)
 driver.quit()
 
 
