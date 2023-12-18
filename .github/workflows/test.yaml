@@ -51,7 +51,6 @@ jobs:
 
      - name: set url
        id: set-url-env
-         url: ${{ github.event.inputs.URL }}
        run: |
         echo "url=${{ github.event.inputs.URL }}" >> $GITHUB_ENV
         echo "url=${{ github.event.inputs.URL }}" >> $RUNNER_TEMP/env
