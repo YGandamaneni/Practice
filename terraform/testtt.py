@@ -34,8 +34,9 @@ for option in options:
     
 driver = webdriver.Chrome(options = chrome_options)
 url = os.environ.get("url")
+tt = os.environ.get("tt")
 driver.get(url)
-print(driver.title)
+print(tt)
 driver.quit()
 
 
