@@ -56,7 +56,7 @@ jobs:
         echo "url=${{ github.event.inputs.URL }}" >> $RUNNER_TEMP/env
      - name: run test
        env:
-         url: ${{ env.URL }}
+         url: ${{ env.url }}
        run: |
         #pip install selenium==3.141.0
         python ./terraform/testtt.py
