@@ -53,7 +53,7 @@ jobs:
        id: set-url-env
        run: |
         echo "url=${{ github.event.inputs.URL }}" >> $GITHUB_ENV
-        echo "url=${{ github.event.inputs.URL }}" >> $RUNNER_TEMP/env
+        #echo "url=${{ github.event.inputs.URL }}" >> $RUNNER_TEMP/env
      - name: run test
        env:
          url: ${{ env.url }}
