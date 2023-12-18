@@ -20,8 +20,8 @@ jobs:
      - name: Install pck
        run: apt list --installed
 
-     - name: rem chrome and runner prev
-       run: sudo apt purge google-chrome-stable
+   #  - name: rem chrome and runner prev
+     #  run: sudo apt purge google-chrome-stable
 
      - name: inst pck
        run: pip install chromedriver-autoinstaller selenium pyvirtualdisplay
