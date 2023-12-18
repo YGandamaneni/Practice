@@ -8,7 +8,7 @@ import sys
 display = Display(visible=0, size=(800, 800))  
 display.start()
 
-url=sys.argv[1]
+url = sys.argv[1]
 
 chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
                                       # and if it doesn't exist, download it automatically,
