@@ -32,7 +32,7 @@ for option in options:
 
     
 driver = webdriver.Chrome(options = chrome_options)
-driver.get('http://ui.scaleout.dgeo.shell.com/')
+driver.get('http://www.python.org')
 print(driver.title)
 driver.quit()
 
