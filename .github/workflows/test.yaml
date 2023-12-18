@@ -9,10 +9,10 @@ on:
         required: true
         default: "https://www.python.org"
 
-     title:
-        description: tile
-        required: true
-        default: driver.title
+    # title:
+       # description: tile
+      #  required: true
+       # default: driver.title
 
 jobs:
   run-scripts:
@@ -60,11 +60,11 @@ jobs:
         echo "url=${{ github.event.inputs.URL }}" >> $GITHUB_ENV
         echo "tt=${{ github.event.inputs.title }}" >> $GITHUB_ENV
      - name: run test
-       env:
-         url: ${{ env.url }}
-         tt: ${{ env.tt}}
+      # env:
+       #  url: ${{ env.url }}
+       #  tt: ${{ env.tt}}
        run: |
         #pip install selenium==3.141.0
-        python ./terraform/testtt.py
+        python ./terraform/testtt.py ${{ github.event.inputs.URL }}
           
          
