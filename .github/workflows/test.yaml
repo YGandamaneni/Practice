@@ -54,11 +54,11 @@ jobs:
         #  source venv/bin/activate
         ##   python ./terraform/testtt.py
 
-     - name: set url
-       id: set-url-env
-       run: |
-        echo "url=${{ github.event.inputs.URL }}" >> $GITHUB_ENV
-        echo "tt=${{ github.event.inputs.title }}" >> $GITHUB_ENV
+   #  - name: set url
+     #  id: set-url-env
+     #  run: |
+     #  echo "tt=${{ github.event.inputs.title }}" >> $GITHUB_ENV
+     
      - name: run test
       # env:
        #  url: ${{ env.url }}
