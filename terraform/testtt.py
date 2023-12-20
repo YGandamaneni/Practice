@@ -9,6 +9,7 @@ display = Display(visible=0, size=(800, 800))
 display.start()
 
 url = sys.argv[1]
+model = "Suriname Shallow"
 
 chromedriver_autoinstaller.install()  # Check if the current version of chromedriver exists
                                       # and if it doesn't exist, download it automatically,
@@ -39,6 +40,8 @@ driver = webdriver.Chrome(options = chrome_options)
 #url = os.environ.get("url")
 driver.get(url)
 print(driver.title)
+radio_button=driver.find_element(By.XPATH, '//input[@type="radio" and @value="model"]')
+print(radio_button)
 driver.quit()
 
 
